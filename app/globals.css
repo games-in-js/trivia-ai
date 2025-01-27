@@ -1,6 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-gray-100: #8899a6;
+  --color-gray-200: #38444d;
+
+  --color-pink: #f231a5;
+
+  --color-blue-100: #0a0c21;
+  --color-blue-200: #000010;
+}
 
 :root {
   --background: #ffffff;
