@@ -1,6 +1,8 @@
 import { Gamepad2 } from "lucide-react";
 import Select from "./components/ui/Select";
 import Button from "./components/ui/Button";
+import SetupScreen from "./components/SetupScreen";
+import LoadingScreen from "./components/LoadingScreen";
 
 export default function Home() {
   return (
@@ -12,15 +14,8 @@ export default function Home() {
         </h1>
 
         <div className="space-y-6">
-          <Select label="Category">
-            <option value="general">general</option>
-          </Select>
-
-          <Select label="Difficulty">
-            <option value="easy">easy</option>
-          </Select>
-
-          <Button variant="primary">Start Game</Button>
+          {/* <SetupScreen /> */}
+          <LoadingScreen />
         </div>
       </div>
     </div>
