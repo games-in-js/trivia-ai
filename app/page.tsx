@@ -3,6 +3,7 @@ import Select from "./components/ui/Select";
 import Button from "./components/ui/Button";
 import SetupScreen from "./components/SetupScreen";
 import LoadingScreen from "./components/LoadingScreen";
+import QuestionScreen from "./components/QuestionScreen";
 
 export default function Home() {
   return (
@@ -15,7 +16,9 @@ export default function Home() {
 
         <div className="space-y-6">
           {/* <SetupScreen /> */}
-          <LoadingScreen />
+          {/* <LoadingScreen /> */}
+
+          <QuestionScreen />
         </div>
       </div>
     </div>
