@@ -12,7 +12,8 @@ import { useGameState } from "./hooks/useGameState";
 import { GAME_STATE } from "./constants";
 
 export default function Home() {
-  const { config, updateConfig, gameState, fetchNewQuestion } = useGameState();
+  const { config, updateConfig, gameState, fetchNewQuestion, questionData } =
+    useGameState();
 
   const renderGameScreen = () => {
     switch (gameState) {
@@ -28,10 +29,10 @@ export default function Home() {
         );
       case GAME_STATE.LOADING:
         return <LoadingScreen />;
+      case GAME_STATE.PLAYING:
+        return <QuestionScreen questionData={questionData} />;
       case GAME_STATE.ERROR:
         return <ErrorScreen />;
-      case GAME_STATE.PLAYING:
-        return <QuestionScreen />;
       case GAME_STATE.GAME_OVER:
         return <GameOverScreen />;
       default:

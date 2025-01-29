@@ -10,6 +10,13 @@ export type GameConfig = {
   difficulty: Difficulty;
 };
 
+export type QuestionData = {
+  question: string;
+  answers: Array<string>;
+  correctAnswer: string;
+};
+
 export type GameSession = {
   state: GameState;
+  questionData: QuestionData;
 };
