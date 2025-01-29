@@ -19,4 +19,5 @@ export type QuestionData = {
 export type GameSession = {
   state: GameState;
   questionData: QuestionData;
+  selectedAnswer: string;
 };

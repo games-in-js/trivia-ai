@@ -4,20 +4,24 @@ import { QuestionData } from "@/app/types";
 
 type Props = {
   questionData: QuestionData;
+  selectedAnswer: string;
+  onAnswer: (selectedAnswer: string) => void;
 };
 
-function QuestionScreen({ questionData }: Props) {
+function QuestionScreen({ questionData, selectedAnswer, onAnswer }: Props) {
   return (
     <>
       <p className="text-lg text-center">{questionData.question}</p>
 
       <div className="space-y-3">
         {questionData.answers.map((answer) => (
-          <Button key={answer}>{answer}</Button>
+          <Button key={answer} onClick={() => onAnswer(answer)}>
+            {answer}
+          </Button>
         ))}
       </div>
 
-      <Button variant="primary">Next Question</Button>
+      {selectedAnswer && <Button variant="primary">Next Question</Button>}
 
       <div className="text-sm text-center">
         <div className="flex items-center justify-center gap-2">
