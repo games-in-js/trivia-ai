@@ -12,13 +12,14 @@ const variantStyles = {
   error: "bg-red-600 hover:bg-red-700 text-white",
 } as const;
 
-function Button({ variant = "default", children }: Props) {
+function Button({ variant = "default", children, ...props }: Props) {
   return (
     <button
       className={cn(
         "rounded-lg p-3 w-full transition-colors cursor-pointer",
         variantStyles[variant]
       )}
+      {...props}
     >
       {children}
     </button>

@@ -8,7 +8,7 @@ const initialConfig: GameConfig = {
 };
 
 const initialGameSession: GameSession = {
-  state: GAME_STATE.ERROR,
+  state: GAME_STATE.SETUP,
 };
 
 export function useGameState() {
@@ -20,9 +20,14 @@ export function useGameState() {
     setConfig((prev) => ({ ...prev, ...newConfig }));
   }
 
+  function fetchNewQuestion() {
+    setGameSession((prev) => ({ ...prev, state: GAME_STATE.LOADING }));
+  }
+
   return {
     config,
     updateConfig,
     gameState: gameSession.state,
+    fetchNewQuestion,
   };
 }

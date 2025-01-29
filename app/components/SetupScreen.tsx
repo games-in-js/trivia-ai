@@ -8,6 +8,7 @@ type Props = {
   difficulty: Difficulty;
   onCategoryChange: (category: Category) => void;
   onDifficultyChange: (difficulty: Difficulty) => void;
+  onStart: () => void;
 };
 
 function SetupScreen({
@@ -15,6 +16,7 @@ function SetupScreen({
   difficulty,
   onCategoryChange,
   onDifficultyChange,
+  onStart,
 }: Props) {
   return (
     <>
@@ -42,7 +44,9 @@ function SetupScreen({
         ))}
       </Select>
 
-      <Button variant="primary">Start Game</Button>
+      <Button variant="primary" onClick={onStart}>
+        Start Game
+      </Button>
     </>
   );
 }
