@@ -65,6 +65,10 @@ export function useGameState() {
     }));
   }
 
+  function handleRestart() {
+    setGameSession(initialGameSession);
+  }
+
   return {
     config,
     updateConfig,
@@ -74,5 +78,6 @@ export function useGameState() {
     handleAnswer,
     selectedAnswer: gameSession.selectedAnswer,
     score: gameSession.score,
+    handleRestart,
   };
 }

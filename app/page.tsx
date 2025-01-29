@@ -21,6 +21,7 @@ export default function Home() {
     handleAnswer,
     selectedAnswer,
     score,
+    handleRestart,
   } = useGameState();
 
   console.log(selectedAnswer);
@@ -49,7 +50,7 @@ export default function Home() {
           />
         );
       case GAME_STATE.GAME_OVER:
-        return <GameOverScreen score={score} />;
+        return <GameOverScreen score={score} onRestart={handleRestart} />;
       case GAME_STATE.ERROR:
         return <ErrorScreen onRetry={fetchNewQuestion} />;
       default:
