@@ -20,6 +20,7 @@ export default function Home() {
     questionData,
     handleAnswer,
     selectedAnswer,
+    score,
   } = useGameState();
 
   console.log(selectedAnswer);
@@ -43,13 +44,14 @@ export default function Home() {
           <QuestionScreen
             questionData={questionData}
             selectedAnswer={selectedAnswer}
+            score={score}
             onAnswer={handleAnswer}
           />
         );
+      case GAME_STATE.GAME_OVER:
+        return <GameOverScreen score={score} />;
       case GAME_STATE.ERROR:
         return <ErrorScreen onRetry={fetchNewQuestion} />;
-      case GAME_STATE.GAME_OVER:
-        return <GameOverScreen />;
       default:
         return null;
     }

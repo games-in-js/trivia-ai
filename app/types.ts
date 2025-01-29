@@ -16,8 +16,14 @@ export type QuestionData = {
   correctAnswer: string;
 };
 
+export type Score = {
+  correct: number;
+  wrong: number;
+};
+
 export type GameSession = {
   state: GameState;
   questionData: QuestionData;
   selectedAnswer: string;
+  score: Score;
 };

@@ -1,14 +1,20 @@
 import { CircleCheck, CircleX } from "lucide-react";
 import Button from "./ui/Button";
-import { QuestionData } from "@/app/types";
+import { QuestionData, Score } from "@/app/types";
 
 type Props = {
   questionData: QuestionData;
   selectedAnswer: string;
+  score: Score;
   onAnswer: (selectedAnswer: string) => void;
 };
 
-function QuestionScreen({ questionData, selectedAnswer, onAnswer }: Props) {
+function QuestionScreen({
+  questionData,
+  selectedAnswer,
+  score,
+  onAnswer,
+}: Props) {
   const getAnswerVariant = (answer: string) => {
     if (!selectedAnswer) return "default";
     if (answer === questionData.correctAnswer) return "success";
@@ -37,9 +43,9 @@ function QuestionScreen({ questionData, selectedAnswer, onAnswer }: Props) {
       <div className="text-sm text-center">
         <div className="flex items-center justify-center gap-2">
           <CircleCheck className="text-green-500" />
-          <span className="text-green-500">1 correct</span>
+          <span className="text-green-500">{score.correct} correct</span>
           <CircleX className="text-red-500" />
-          <span className="text-red-500">1 wrong</span>
+          <span className="text-red-500">{score.wrong} wrong</span>
         </div>
       </div>
     </>

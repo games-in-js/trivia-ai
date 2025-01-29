@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { CATEGORIES, DIFFICULTIES, GAME_STATE } from "../constants";
+import {
+  CATEGORIES,
+  DIFFICULTIES,
+  GAME_STATE,
+  MAX_WRONG_ANSWERS,
+} from "../constants";
 import { GameConfig, GameSession } from "../types";
 import { getQuestion } from "@/app/actions";
 
@@ -12,6 +17,7 @@ const initialGameSession: GameSession = {
   state: GAME_STATE.SETUP,
   questionData: { question: "", answers: [], correctAnswer: "" },
   selectedAnswer: "",
+  score: { correct: 0, wrong: 0 },
 };
 
 export function useGameState() {
@@ -43,9 +49,19 @@ export function useGameState() {
   }
 
   function handleAnswer(selectedAnswer: string) {
+    const isCorrect = selectedAnswer === gameSession.questionData.correctAnswer;
+    const newScore = {
+      correct: gameSession.score.correct + (isCorrect ? 1 : 0),
+      wrong: gameSession.score.wrong + (!isCorrect ? 1 : 0),
+    };
+
+    const isGameOver = newScore.wrong >= MAX_WRONG_ANSWERS;
+
     setGameSession((prev) => ({
       ...prev,
       selectedAnswer,
+      score: newScore,
+      state: isGameOver ? GAME_STATE.GAME_OVER : GAME_STATE.PLAYING,
     }));
   }
 
@@ -57,5 +73,6 @@ export function useGameState() {
     fetchNewQuestion,
     handleAnswer,
     selectedAnswer: gameSession.selectedAnswer,
+    score: gameSession.score,
   };
 }
