@@ -17,14 +17,14 @@ export default function Home() {
         </h1>
 
         <div className="space-y-6">
-          {/* <SetupScreen /> */}
+          <SetupScreen />
           {/* <LoadingScreen /> */}
 
           {/* <QuestionScreen /> */}
 
           {/* <GameOverScreen /> */}
 
-          <ErrorScreen />
+          {/* <ErrorScreen /> */}
         </div>
       </div>
     </div>
