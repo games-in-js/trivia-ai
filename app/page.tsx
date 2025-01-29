@@ -4,6 +4,8 @@ import Button from "./components/ui/Button";
 import SetupScreen from "./components/SetupScreen";
 import LoadingScreen from "./components/LoadingScreen";
 import QuestionScreen from "./components/QuestionScreen";
+import GameOverScreen from "./components/GameOverScreen";
+import ErrorScreen from "./components/ErrorScreen";
 
 export default function Home() {
   return (
@@ -18,7 +20,11 @@ export default function Home() {
           {/* <SetupScreen /> */}
           {/* <LoadingScreen /> */}
 
-          <QuestionScreen />
+          {/* <QuestionScreen /> */}
+
+          {/* <GameOverScreen /> */}
+
+          <ErrorScreen />
         </div>
       </div>
     </div>
