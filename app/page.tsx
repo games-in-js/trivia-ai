@@ -47,6 +47,7 @@ export default function Home() {
             selectedAnswer={selectedAnswer}
             score={score}
             onAnswer={handleAnswer}
+            onNextQuestion={fetchNewQuestion}
           />
         );
       case GAME_STATE.GAME_OVER:

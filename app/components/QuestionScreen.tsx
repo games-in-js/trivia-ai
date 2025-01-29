@@ -7,6 +7,7 @@ type Props = {
   selectedAnswer: string;
   score: Score;
   onAnswer: (selectedAnswer: string) => void;
+  onNextQuestion: () => void;
 };
 
 function QuestionScreen({
@@ -14,6 +15,7 @@ function QuestionScreen({
   selectedAnswer,
   score,
   onAnswer,
+  onNextQuestion,
 }: Props) {
   const getAnswerVariant = (answer: string) => {
     if (!selectedAnswer) return "default";
@@ -39,7 +41,11 @@ function QuestionScreen({
         ))}
       </div>
 
-      {selectedAnswer && <Button variant="primary">Next Question</Button>}
+      {selectedAnswer && (
+        <Button variant="primary" onClick={onNextQuestion}>
+          Next Question
+        </Button>
+      )}
 
       <div className="text-sm text-center">
         <div className="flex items-center justify-center gap-2">

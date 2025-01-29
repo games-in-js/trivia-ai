@@ -42,6 +42,7 @@ export function useGameState() {
         ...prev,
         questionData,
         state: GAME_STATE.PLAYING,
+        selectedAnswer: "",
       }));
     } catch {
       setGameSession((prev) => ({ ...prev, state: GAME_STATE.ERROR }));
