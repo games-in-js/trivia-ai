@@ -11,9 +11,9 @@ import ErrorScreen from "./components/ErrorScreen";
 import { useGameState } from "./hooks/useGameState";
 
 export default function Home() {
-  const { config, updateConfig } = useGameState();
+  const { config, updateConfig, gameState } = useGameState();
 
-  console.log(config);
+  console.log(gameState);
 
   return (
     <div className="min-h-screen bg-blue-200 flex items-center justify-center text-white p-4">
