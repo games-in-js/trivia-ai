@@ -32,7 +32,7 @@ export default function Home() {
       case GAME_STATE.PLAYING:
         return <QuestionScreen questionData={questionData} />;
       case GAME_STATE.ERROR:
-        return <ErrorScreen />;
+        return <ErrorScreen onRetry={fetchNewQuestion} />;
       case GAME_STATE.GAME_OVER:
         return <GameOverScreen />;
       default:

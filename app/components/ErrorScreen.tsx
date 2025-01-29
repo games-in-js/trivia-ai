@@ -1,7 +1,11 @@
 import { AlertCircle } from "lucide-react";
 import Button from "./ui/Button";
 
-function ErrorScreen() {
+type Props = {
+  onRetry: () => void;
+};
+
+function ErrorScreen({ onRetry }: Props) {
   return (
     <>
       <div className="flex items-center justify-center gap-2 text-red-500">
@@ -9,7 +13,9 @@ function ErrorScreen() {
         <h2 className="text-xl font-bold">Oops! Something went wrong</h2>
       </div>
       <p>There was an error loading the question.</p>
-      <Button variant="primary">Try Again</Button>
+      <Button variant="primary" onClick={onRetry}>
+        Try Again
+      </Button>
     </>
   );
 }

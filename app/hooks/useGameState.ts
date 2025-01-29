@@ -25,13 +25,20 @@ export function useGameState() {
   async function fetchNewQuestion() {
     setGameSession((prev) => ({ ...prev, state: GAME_STATE.LOADING }));
 
-    const questionData = await getQuestion(config.category, config.difficulty);
+    try {
+      const questionData = await getQuestion(
+        config.category,
+        config.difficulty
+      );
 
-    setGameSession((prev) => ({
-      ...prev,
-      questionData,
-      state: GAME_STATE.PLAYING,
-    }));
+      setGameSession((prev) => ({
+        ...prev,
+        questionData,
+        state: GAME_STATE.PLAYING,
+      }));
+    } catch {
+      setGameSession((prev) => ({ ...prev, state: GAME_STATE.ERROR }));
+    }
   }
 
   return {
