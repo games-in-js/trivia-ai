@@ -32,6 +32,7 @@ function QuestionScreen({
             key={answer}
             variant={getAnswerVariant(answer)}
             onClick={() => onAnswer(answer)}
+            disabled={selectedAnswer !== ""}
           >
             {answer}
           </Button>
