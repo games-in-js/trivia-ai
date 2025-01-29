@@ -9,13 +9,24 @@ type Props = {
 };
 
 function QuestionScreen({ questionData, selectedAnswer, onAnswer }: Props) {
+  const getAnswerVariant = (answer: string) => {
+    if (!selectedAnswer) return "default";
+    if (answer === questionData.correctAnswer) return "success";
+    if (answer === selectedAnswer) return "error";
+    return "default";
+  };
+
   return (
     <>
       <p className="text-lg text-center">{questionData.question}</p>
 
       <div className="space-y-3">
         {questionData.answers.map((answer) => (
-          <Button key={answer} onClick={() => onAnswer(answer)}>
+          <Button
+            key={answer}
+            variant={getAnswerVariant(answer)}
+            onClick={() => onAnswer(answer)}
+          >
             {answer}
           </Button>
         ))}
